@@ -447,15 +447,18 @@ class FightHandler(BaseHandler):
                 if event['receiver_id'] == item.id:
                     events.remove(event)
 
-    @gen.coroutine
     def _send_event(self, event_item_id, event_name, check_function, data_function):
         event_item = self.fighters.get(event_item_id)
         events = self.EVENTS.get(event_name, [])
+        io_loop = IOLoop.current()
         for event in events[:]:
             receiver = self.fighters[event['receiver_id']]
             if check_function(event, event_item, receiver):
-                yield receiver.send_event(lookup_key=event['lookup_key'],
-                                          data=data_function(event, event_item, receiver))
+                io_loop.spawn_callback(
+                    receiver.send_event,
+                    lookup_key=event['lookup_key'],
+                    data=data_function(event, event_item, receiver)
+                )
                 events.remove(event)
 
     @staticmethod
