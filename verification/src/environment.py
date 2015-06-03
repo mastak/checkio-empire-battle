@@ -20,12 +20,14 @@ class BattleEnvironmentClient(EnvironmentClient):
         })
 
     @gen.coroutine
-    def bad_action(self, data=None):
+    def bad_action(self, error=None):
         message = {
             'status': 400,
         }
-        if data is not None:
-            message['data'] = str(data)
+        if error is not None:
+            message['data'] = {
+                'error': str(error)
+            }
         self.write(message)
 
     @gen.coroutine
