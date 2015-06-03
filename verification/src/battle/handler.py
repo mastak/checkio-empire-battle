@@ -8,7 +8,7 @@ from checkio_referee.handlers.base import BaseHandler
 
 from .items import FightItem, CraftItem
 from .tools import precalculated, fill_square, grid_to_graph, euclidean_distance
-from .tools.terms import ROLE, ATTRIBUTE, PARTY, ACTION, INITIAL, DEFEAT_REASON, OUTPUT, PLAYER
+from .terms import ROLE, ATTRIBUTE, PARTY, ACTION, INITIAL, DEFEAT_REASON, OUTPUT, PLAYER
 
 
 class FightHandler(BaseHandler):

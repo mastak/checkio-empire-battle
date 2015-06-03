@@ -2,7 +2,7 @@ from tornado import gen
 
 from .item_actions import ItemActions
 from .item_actions.exceptions import ActionValidateError
-from .tools.terms import PLAYER, ROLE, ATTRIBUTE, ACTION, STATUS
+from .terms import PLAYER, ROLE, ATTRIBUTE, ACTION, STATUS
 
 
 class Item(object):
