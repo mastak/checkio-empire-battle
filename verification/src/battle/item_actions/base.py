@@ -1,5 +1,5 @@
 from .exceptions import ActionValidateError
-from tools.distances import euclidean_distance
+from battle.tools.distances import euclidean_distance
 
 
 class BaseItemActions(object):
@@ -25,7 +25,6 @@ class BaseItemActions(object):
         enemy = self._fight_handler.fighters.get(data['id'])
         if enemy is None:
             raise Exception("No enemy")
-            return  # WTF
 
         return self._shot(enemy)
 
