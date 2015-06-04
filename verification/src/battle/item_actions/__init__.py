@@ -1,9 +1,11 @@
+from battle.terms import ROLE
+
 from .center import CenterActions
 from .defence import DefenceActions
 from .unit import UnitActions
 from .building import BuildingActions
 from .obstacle import ObstacleActions
-from tools import ROLE
+
 
 class ItemActions(object):
 
